@@ -7,6 +7,7 @@ function useAddFolder(root, path, selected, setOpenModel) {
   const categoryList = useSelector((state) => state.tree);
   const selectedFolder = useSelector((state) => state.selectedFolder);
 
+  const selectedItemVal = selected ? selected.split("-") : [];
   const selectFolderKeyVal =
     Object.keys(selectedFolder).length &&
     `${selectedFolder.keyVal}-${selectedFolder.children.length}`;
@@ -34,16 +35,28 @@ function useAddFolder(root, path, selected, setOpenModel) {
     if (root) {
       dispatch(add(children));
     } else {
+      console.log("***************** update child called ********************");
+
       let newCategoryList =
         categoryList &&
         categoryList.map((item) => {
           let clonedObject = { ...item };
+
           if (item.keyVal === selected) {
             clonedObject = {
               ...clonedObject,
               children: [...item.children, children],
             };
             console.log("clonedObject: ", clonedObject);
+            // item.label = inputVal;
+          } else {
+            item.children.map((obj) => {
+              handleAddRootFolder();
+            });
+            clonedObject = {
+              ...clonedObject,
+              children: [...item.children, children],
+            };
           }
           return clonedObject;
         });

@@ -31,7 +31,7 @@ const settingButtonStyle = {
   backgroundColor: "transparent",
 };
 
-export function ChildNode({ node }) {
+export function Child({ node }) {
   const { children, label, keyVal } = node;
 
   const dispatch = useDispatch();
@@ -118,20 +118,29 @@ export function ChildNode({ node }) {
           {/* </button> */}
         </div>
       </div>
-      <li
-        id={`folder-${keyVal}`}
-        className="list"
-        style={{ paddingLeft: "10px" }}
-      >
+      <ul>
+        {/* <li
+          id={`folder-${keyVal}`}
+          className="list"
+          style={{ paddingLeft: "10px" }}
+        > */}
         {console.log("children: ", children)}
         {showChildren && children && children.length
-          ? children.map((node1) => (
-              <>
-                <Tree categoryList={node1} child={true} />
-              </>
+          ? children.map((child) => (
+              <li
+                id={`folder-${keyVal}`}
+                className="list"
+                style={{ paddingLeft: "10px" }}
+              >
+                <Child
+                  node={child}
+                  onAddChild={(newChildLabel) => child.addChild(newChildLabel)}
+                />
+              </li>
             ))
           : null}
-      </li>
+        {/* </li> */}
+      </ul>
     </>
   );
 }

@@ -4,6 +4,7 @@ import "./App.css";
 import { Provider } from "react-redux";
 import store from "./store/store";
 import { Tree } from "./component/tree/Tree";
+import { Parent } from "./component/tree/Parent";
 import { AddFolder } from "./component/AddFolder";
 
 function App() {
@@ -61,7 +62,8 @@ function App() {
         <div className="treeContainer">
           <AddFolder />
           {/* <Tree categoryList={categoryList} /> */}
-          <Tree />
+          {/* <Tree child={false} /> */}
+          <Parent />
         </div>
       </Provider>
     </div>

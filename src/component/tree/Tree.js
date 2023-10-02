@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 export function Tree(props) {
   // const { categoryList } = props;
   const categoryList = useSelector((state) => state.tree);
-  const listVal = props.categoryList ? props.categoryList : categoryList;
+  let listVal = props.child ? props.categoryList : categoryList;
   console.log("list: ", listVal);
   return (
     <div>
