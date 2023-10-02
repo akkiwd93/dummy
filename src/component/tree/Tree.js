@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import { ChildNode } from "./ChildNode";
 
 //Redux
 import { useSelector } from "react-redux";
 
-export function Tree() {
+export function Tree(props) {
+  // const { categoryList } = props;
   const categoryList = useSelector((state) => state.tree);
+  const listVal = props.categoryList ? props.categoryList : categoryList;
+  console.log("list: ", listVal);
   return (
     <div>
       <ul className="tree">
-        {categoryList &&
-          categoryList.map((node) => (
+        {listVal &&
+          listVal.map((node) => (
             <>
-              {/* {console.log("Tree Node: ", node)} */}
               <ChildNode node={node} key={node.key} />
             </>
           ))}

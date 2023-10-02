@@ -2,10 +2,13 @@ const { createSlice } = require("@reduxjs/toolkit");
 
 const statusSlice = createSlice({
   name: "folderStat",
-  initialState: { folderstatus: false },
+  initialState: { folderStatus: false, rename: false, editDropdown: false },
   reducers: {
     statusVal(state, action) {
-      return action.payload;
+      return (state = {
+        ...state,
+        ...action.payload,
+      });
     },
   },
 });

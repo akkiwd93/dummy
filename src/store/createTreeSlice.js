@@ -8,14 +8,13 @@ const createTree = createSlice({
       state.push(action.payload);
     },
     remove(state, action) {
-      return state.filter((item) => item.key !== action.payload);
+      return state.filter((item) => item.keyVal !== action.payload);
     },
-    status(state, action) {
-      return (state = action.payload);
+    update(state, action) {
+      return action.payload;
     },
-    rename() {},
   },
 });
 
-export const { add, remove, status } = createTree.actions;
+export const { add, remove, update } = createTree.actions;
 export default createTree.reducer;

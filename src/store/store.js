@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import treeReducer from "./createTree";
+import treeReducer from "./createTreeSlice";
 import statusReducer from "./statusSlice";
+import selectedFolderReducer from "./selectedFolderSlice";
 
 const store = configureStore({
   reducer: {
-    folderStat: statusReducer,
     tree: treeReducer,
+    folderStat: statusReducer,
+    selectedFolder: selectedFolderReducer,
   },
 });
 export default store;

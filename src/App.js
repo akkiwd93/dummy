@@ -7,15 +7,6 @@ import { Tree } from "./component/tree/Tree";
 import { AddFolder } from "./component/AddFolder";
 
 function App() {
-  const [categoryList, setCategoryList] = useState([
-    {
-      keyVal: "0",
-      label: "cat1",
-      children: [],
-      root: true,
-    },
-  ]);
-
   // const categoryList = [
   //   {
   //     keyVal: "0",
@@ -69,6 +60,7 @@ function App() {
         <h1>Category List</h1>
         <div className="treeContainer">
           <AddFolder />
+          {/* <Tree categoryList={categoryList} /> */}
           <Tree />
         </div>
       </Provider>

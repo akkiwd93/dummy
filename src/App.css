@@ -5,6 +5,10 @@ html, body, #root, .App {
   height: 100%;
 }
 
+button {
+  cursor: pointer;
+}
+
 h1 {
   background-color: #2B1A17;
   color: #CECECE;
@@ -13,9 +17,8 @@ h1 {
 }
 
 .treeContainer {
-  width: 30%;
   height: 100%;
-  padding-left: 10px;
+  padding: 15px 30px;
   background-color: #CECECE;
   color: #2B1A17;
   margin: 0;
@@ -49,7 +52,8 @@ h1 {
   position: relative;
 }
 
-.dropdown-options a {
+.dropdown-options button {
+  background-color: inherit;
   color: #CECECE;
-  text-decoration: none;
+  border: none;
 }
